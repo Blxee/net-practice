@@ -1,16 +1,14 @@
-__This project has been created as part of the 42 curriculum by atahiri-.__
+_This project has been created as part of the 42 curriculum by atahiri-._
 
 # NetPractice
 
 ## Description:
-section that clearly presents the project, including its goal and a
-brief overview.
+
+**Net Practice** is a networking project aimed at understanding subnetting in a practical hands-on experience.  
+The goal is to make the user comfortable with networking fundamentals especially subnetting.  
+It uses a network simluation program in which the user has to give the correct ip adresse and subnet mask for each device.  
 
 ## Instructions:
-section containing any relevant information about compilation,
-installation, and/or execution.
-• The Instructions section must explain how to run the training interface (e.g.,
-using run.sh), how to export configurations, and submission requirements.
 
 ### Installation:
 
@@ -60,7 +58,7 @@ The following are the correct configurations for all the levels:
 
 ## Resources:
 
-### Resources:
+### References:
 
 The following are some resouces that were of immese help in this project:
 
@@ -77,9 +75,148 @@ AI was rarely used in this project, the usages were limited to:
 * Demonstrating some subnetting examples.
 * Fixing typos in documentation.
 
-### Networking Concepts
+### Networking Concepts:
 
-• The Resources section must explicitly mention the networking concepts studied,
-such as TCP/IP addressing, subnet masks, default gateways, routers and
-switches, OSI layers, etc.
+#### TCP/IP Addressing
+
+An **IP address** identifies a device/interface on a network.
+
+Example:
+
+```text
+192.168.1.10
+```
+
+* **IPv4** → 32-bit address, usually written as 4 numbers.
+* **IPv6** → 128-bit address, designed for a much larger address space.
+* An IP address identifies **where** a device is on a network.
+
+Example:
+
+```text
+PC       → 192.168.1.10
+Server   → 192.168.1.20
+Router   → 192.168.1.1
+```
+
+---
+
+#### Subnet Masks
+
+A **subnet mask** tells you which part of an IP address represents the **network** and which part represents the **host**.
+
+Example:
+
+```text
+IP:          192.168.1.10
+Subnet mask: 255.255.255.0
+CIDR:        /24
+```
+
+This means:
+
+```text
+Network: 192.168.1.0
+Host:    .10
+```
+
+So devices such as:
+
+```text
+192.168.1.10
+192.168.1.20
+192.168.1.50
+```
+
+are on the same subnet.
+
+---
+
+#### Default Gateway
+
+The **default gateway** is usually your router's IP address on your local network.
+
+It is where a device sends packets when the destination **isn't on its own subnet**.
+
+Example:
+
+```text
+PC:      192.168.1.10
+Gateway: 192.168.1.1
+Internet: somewhere else
+```
+
+The PC effectively says:
+
+> "This destination isn't local, so I'll send the packet to my gateway."
+
+---
+
+#### Switches
+
+A **switch** connects devices within a local network (**LAN**).
+
+It primarily works with **MAC addresses**.
+
+```text
+PC ──┐
+PC ──┼── Switch
+PC ──┘
+```
+
+The switch learns which MAC address is connected to which port and forwards Ethernet frames accordingly.
+
+> Switch = connects devices inside a network.
+
+---
+
+#### Routers
+
+A **router** connects **different networks** and forwards packets based on IP addresses.
+
+```text
+LAN A ── Router ── LAN B
+                 │
+              Internet
+```
+
+For example:
+
+```text
+192.168.1.0/24
+       ↓
+    Router
+       ↓
+10.0.0.0/24
+```
+
+**Think:**
+
+> Router = connects networks.
+
+---
+
+#### OSI Model
+
+The **OSI model** divides networking into 7 conceptual layers:
+
+| Layer | Name         | Main idea                         |
+| ----- | ------------ | --------------------------------- |
+| 7     | Application  | HTTP, DNS, FTP                    |
+| 6     | Presentation | Encoding, encryption, formatting  |
+| 5     | Session      | Manages communication sessions    |
+| 4     | Transport    | TCP, UDP, ports                   |
+| 3     | Network      | IP, routing                       |
+| 2     | Data Link    | Ethernet, MAC addresses, switches |
+| 1     | Physical     | Cables, radio, electrical signals |
+
+A simple way to remember the important networking layers:
+
+```text
+L7  Application   → HTTP
+L4  Transport     → TCP / UDP
+L3  Network       → IP / Router
+L2  Data Link     → Ethernet / MAC / Switch
+L1  Physical      → Cable / Wi-Fi signal
+```
 
